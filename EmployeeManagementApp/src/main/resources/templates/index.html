@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<title>Employee Management System</title>
+
+<link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+
+<body>
+
+	<div class="container">
+
+		<div class="card">
+
+			<h1>Employee Management System</h1>
+
+			<a href="/add" class="add-btn"> + Add Employee </a>
+
+			<table>
+
+				<tr>
+					<th>ID</th>
+					<th>Name</th>
+					<th>Email</th>
+					<th>Department</th>
+					<th>Salary</th>
+					<th>View</th>
+					<th>Edit</th>
+					<th>Delete</th>
+				</tr>
+
+				<tr th:each="emp : ${employees}">
+
+					<td th:text="${emp.id}"></td>
+					<td th:text="${emp.name}"></td>
+					<td th:text="${emp.email}"></td>
+					<td th:text="${emp.department}"></td>
+					<td th:text="${emp.salary}"></td>
+
+					<td><a class="view-btn"
+						th:href="@{/employee/{id}(id=${emp.id})}"> View </a></td>
+
+					<td><a class="edit-btn" th:href="@{/edit/{id}(id=${emp.id})}">
+							Edit </a></td>
+
+					<td><a class="delete-btn"
+						th:href="@{/delete/{id}(id=${emp.id})}"> Delete </a></td>
+
+				</tr>
+
+			</table>
+
+		</div>
+
+	</div>
+
+</body>
+
+</html>
