@@ -1,6 +1,0 @@
-services:
-  - type: web
-    name: employee-management-app
-    runtime: java
-    buildCommand: chmod +x gradlew && ./gradlew build
-    startCommand: java -jar build/libs/*.jar
